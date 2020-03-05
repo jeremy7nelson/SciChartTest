@@ -8,4 +8,5 @@ for /f "delims=" %%G in ('"%ProgramFiles(x86)%\Microsoft Visual Studio\installer
 call "%VSCMD%"
 
 call git clean -fdx
+call git submodule foreach git clean -fdx
 call msbuild SciChartTest.sln /m /v:m /p:Configuration=Release /restore
