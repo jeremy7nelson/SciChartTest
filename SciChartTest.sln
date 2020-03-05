@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciChartTest", "SciChartTest\SciChartTest.csproj", "{4FB4E123-895A-4E97-9437-F0DA65C8D298}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SciChartWPF", "SciChartWPF", "{519A3BAB-5BA7-4CFA-B0A8-B2447DDB6C07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciChart.Charting", "SciChartWPF\WPF\src\SciChart.Charting\SciChart.Charting.csproj", "{A5C6C9ED-5BA0-4E19-8345-5D7AE9E1B74F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciChart.Core", "SciChartWPF\WPF\src\SciChart.Core\SciChart.Core.csproj", "{F90DB2CC-FC91-41F5-9F6A-5DA24454F15D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciChart.Data", "SciChartWPF\WPF\src\SciChart.Data\SciChart.Data.csproj", "{BF15F501-3EF2-40E7-8006-9E8EEF9B9BAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciChart.Drawing", "SciChartWPF\WPF\src\SciChart.Drawing\SciChart.Drawing.csproj", "{AE2109F5-3E9C-4792-9D4F-2B8AC338D70A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +25,31 @@ Global
 		{4FB4E123-895A-4E97-9437-F0DA65C8D298}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FB4E123-895A-4E97-9437-F0DA65C8D298}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FB4E123-895A-4E97-9437-F0DA65C8D298}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5C6C9ED-5BA0-4E19-8345-5D7AE9E1B74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5C6C9ED-5BA0-4E19-8345-5D7AE9E1B74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5C6C9ED-5BA0-4E19-8345-5D7AE9E1B74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5C6C9ED-5BA0-4E19-8345-5D7AE9E1B74F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90DB2CC-FC91-41F5-9F6A-5DA24454F15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90DB2CC-FC91-41F5-9F6A-5DA24454F15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90DB2CC-FC91-41F5-9F6A-5DA24454F15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90DB2CC-FC91-41F5-9F6A-5DA24454F15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF15F501-3EF2-40E7-8006-9E8EEF9B9BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF15F501-3EF2-40E7-8006-9E8EEF9B9BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF15F501-3EF2-40E7-8006-9E8EEF9B9BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF15F501-3EF2-40E7-8006-9E8EEF9B9BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE2109F5-3E9C-4792-9D4F-2B8AC338D70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE2109F5-3E9C-4792-9D4F-2B8AC338D70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE2109F5-3E9C-4792-9D4F-2B8AC338D70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE2109F5-3E9C-4792-9D4F-2B8AC338D70A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A5C6C9ED-5BA0-4E19-8345-5D7AE9E1B74F} = {519A3BAB-5BA7-4CFA-B0A8-B2447DDB6C07}
+		{F90DB2CC-FC91-41F5-9F6A-5DA24454F15D} = {519A3BAB-5BA7-4CFA-B0A8-B2447DDB6C07}
+		{BF15F501-3EF2-40E7-8006-9E8EEF9B9BAC} = {519A3BAB-5BA7-4CFA-B0A8-B2447DDB6C07}
+		{AE2109F5-3E9C-4792-9D4F-2B8AC338D70A} = {519A3BAB-5BA7-4CFA-B0A8-B2447DDB6C07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03336E29-6B6F-48EB-88C0-D06467458119}

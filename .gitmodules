@@ -1,0 +1,3 @@
+[submodule "SciChartWPF"]
+	path = SciChartWPF
+	url = https://github.com/ABTSoftware/SciChartWPF.git
