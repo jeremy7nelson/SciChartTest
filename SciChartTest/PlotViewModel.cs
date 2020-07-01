@@ -4,7 +4,6 @@ using SciChart.Charting.Model.DataSeries;
 using System;
 using System.Collections.ObjectModel;
 using System.Timers;
-using System.Windows.Threading;
 
 namespace ViewModel
 {
@@ -13,12 +12,11 @@ namespace ViewModel
         public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = new ObservableCollection<IRenderableSeriesViewModel>();
 
         private readonly Timer timer = new Timer(1000.0);
-        private readonly Dispatcher dispatcher = Dispatcher.CurrentDispatcher;
         private readonly XyDataSeries<double, double> series = new XyDataSeries<double, double>();
         public PlotViewModel()
         {
             RenderableSeries.Add(new LineRenderableSeriesViewModel() { DataSeries = series });
-            timer.Elapsed += (x, y) => dispatcher.BeginInvoke(new Action(OnTimer));
+            timer.Elapsed += (x, y) => OnTimer();
             timer.Start();
         }
 
