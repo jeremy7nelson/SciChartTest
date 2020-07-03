@@ -1,77 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4FB4E123-895A-4E97-9437-F0DA65C8D298}</ProjectGuid>
+    <TargetFrameworks>net472;netcoreapp3.1</TargetFrameworks>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>SciChartTest</RootNamespace>
-    <AssemblyName>SciChartTest</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <Prefer32Bit>false</Prefer32Bit>
-    <FileAlignment>512</FileAlignment>
-    <WarningLevel>4</WarningLevel>
-    <ErrorReport>prompt</ErrorReport>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" />
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0" />
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
   </ItemGroup>
+
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <ProjectReference Include="..\SciChartWPF\WPF\src\SciChart.Charting\SciChart.Charting.csproj" />
+    <ProjectReference Include="..\SciChartWPF\WPF\src\SciChart.Core\SciChart.Core.csproj" />
+    <ProjectReference Include="..\SciChartWPF\WPF\src\SciChart.Data\SciChart.Data.csproj" />
+    <ProjectReference Include="..\SciChartWPF\WPF\src\SciChart.Drawing\SciChart.Drawing.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PlotViewModel.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SciChartWPF\WPF\src\SciChart.Charting\SciChart.Charting.csproj">
-      <Project>{a5c6c9ed-5ba0-4e19-8345-5d7ae9e1b74f}</Project>
-      <Name>SciChart.Charting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SciChartWPF\WPF\src\SciChart.Core\SciChart.Core.csproj">
-      <Project>{f90db2cc-fc91-41f5-9f6a-5da24454f15d}</Project>
-      <Name>SciChart.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SciChartWPF\WPF\src\SciChart.Data\SciChart.Data.csproj">
-      <Project>{bf15f501-3ef2-40e7-8006-9e8eef9b9bac}</Project>
-      <Name>SciChart.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SciChartWPF\WPF\src\SciChart.Drawing\SciChart.Drawing.csproj">
-      <Project>{ae2109f5-3e9c-4792-9d4f-2b8ac338d70a}</Project>
-      <Name>SciChart.Drawing</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
