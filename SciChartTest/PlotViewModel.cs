@@ -20,10 +20,12 @@ namespace ViewModel
             timer.Start();
         }
 
-        private double x;
+        private double x = 2.0;
         private readonly Random random = new Random();
         private void OnTimer()
         {
+            // Making the first 2 XValues the same hangs during rendering
+            series.Append(x, random.NextDouble());
             series.Append(x++, random.NextDouble());
         }
 
