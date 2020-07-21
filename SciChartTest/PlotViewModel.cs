@@ -1,50 +1,38 @@
 ﻿using Prism.Mvvm;
 using SciChart.Charting.Model.ChartSeries;
 using SciChart.Charting.Model.DataSeries;
+using SciChart.Charting.Visuals.Annotations;
 using System;
 using System.Collections.ObjectModel;
-using System.Timers;
 
 namespace ViewModel
 {
-    public class PlotViewModel : BindableBase, IDisposable
+    public class PlotViewModel : BindableBase
     {
         public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = new ObservableCollection<IRenderableSeriesViewModel>();
+        public AnnotationCollection Annotations { get; } = new AnnotationCollection();
 
-        private readonly Timer timer = new Timer(1000.0);
-        private readonly XyDataSeries<double, double> series = new XyDataSeries<double, double>();
         public PlotViewModel()
         {
-            RenderableSeries.Add(new LineRenderableSeriesViewModel() { DataSeries = series });
-            timer.Elapsed += (x, y) => OnTimer();
-            timer.Start();
+            int count = 1000000;
+            for (int i = 0; i < 100; i++)
+            {
+                var series = new XyDataSeries<double, double>();
+                var xData = new double[count];
+                var yData = new double[count];
+                for (int j = 0; j < count; j++)
+                {
+                    double x = j * 1e-4;
+                    xData[j] = x;
+                    yData[j] = i * Math.Sin(x);
+                }
+                series.Append(xData, yData);
+                RenderableSeries.Add(new LineRenderableSeriesViewModel() { DataSeries = series });
+            }
+
+            Annotations.Add(new VerticalLineAnnotation() { X1 = Math.PI * 0.5 });
+            Annotations.Add(new VerticalLineAnnotation() { X1 = Math.PI * 1.5 });
+            Annotations.Add(new VerticalLineAnnotation() { X1 = Math.PI * 2.5 });
         }
-
-        private double x;
-        private readonly Random random = new Random();
-        private void OnTimer()
-        {
-            series.Append(x++, random.NextDouble());
-        }
-
-        #region Dispose
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private bool disposed = false;
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposed)
-                return;
-
-            if (disposing)
-                timer.Dispose();
-
-            disposed = true;
-        }
-        #endregion
     }
 }

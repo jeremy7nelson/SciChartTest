@@ -25,16 +25,22 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <SciChart:SciChartSurface SciChart:ThemeManager.Theme="BrightSpark" RenderableSeries="{SciChart:SeriesBinding RenderableSeries}"
+        <SciChart:SciChartSurface SciChart:ThemeManager.Theme="BrightSpark" RenderableSeries="{SciChart:SeriesBinding RenderableSeries}" Annotations="{Binding Annotations}"
                 SciChart:VisualXcceleratorEngine.IsEnabled="True" SciChart:VisualXcceleratorEngine.FallbackType="{x:Type SciChart:HighSpeedRenderSurface}"
                 SciChart:VisualXcceleratorEngine.DowngradeWithoutException="True" SciChart:VisualXcceleratorEngine.EnableImpossibleMode="True"
                 SciChart:PerformanceHelper.EnableExtremeResamplers="True">
             <SciChart:SciChartSurface.XAxis>
-                <SciChart:NumericAxis DrawMinorGridLines="False" DrawMajorBands="False" AutoRange="Always"/>
+                <SciChart:NumericAxis DrawMinorGridLines="False" DrawMajorBands="False" AutoRange="Once"/>
             </SciChart:SciChartSurface.XAxis>
             <SciChart:SciChartSurface.YAxis>
-                <SciChart:NumericAxis AxisAlignment="Left" DrawMinorGridLines="False" DrawMajorBands="False" AutoRange="Always" GrowBy="0.2,0.2"/>
+                <SciChart:NumericAxis AxisAlignment="Left" DrawMinorGridLines="False" DrawMajorBands="False" AutoRange="Once" GrowBy="0.2,0.2"/>
             </SciChart:SciChartSurface.YAxis>
+            <SciChart:SciChartSurface.ChartModifier>
+                <SciChart:ModifierGroup>
+                    <SciChart:MouseWheelZoomModifier XyDirection="XDirection"/>
+                    <SciChart:ZoomPanModifier/>
+                </SciChart:ModifierGroup>
+            </SciChart:SciChartSurface.ChartModifier>
         </SciChart:SciChartSurface>
     </Grid>
 </Window>
