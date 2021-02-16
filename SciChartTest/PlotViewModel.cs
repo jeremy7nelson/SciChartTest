@@ -34,7 +34,7 @@ namespace ViewModel
             GC.SuppressFinalize(this);
         }
 
-        private bool disposed = false;
+        private bool disposed;
         protected virtual void Dispose(bool disposing)
         {
             if (disposed)
