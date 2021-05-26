@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net472;netcoreapp3.1;net5.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
+    <LangVersion>latest</LangVersion>
     <UseWPF>true</UseWPF>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <AnalysisMode>AllEnabledByDefault</AnalysisMode>
