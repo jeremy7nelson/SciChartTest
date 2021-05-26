@@ -9,5 +9,5 @@ call "%VSCMD%"
 
 call git clean -fdx
 call msbuild SciChartTest.sln /m /v:m /p:Configuration=Release /restore
-dotnet publish -f netcoreapp3.1 -r win-x64 -c Release /p:PublishSingleFile=true
-dotnet publish -f net5.0-windows -r win-x64 -c Release /p:PublishSingleFile=true
+dotnet publish -f netcoreapp3.1 -c Release
+dotnet publish -f net5.0-windows -c Release
