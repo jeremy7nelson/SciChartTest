@@ -7,6 +7,9 @@ for /f "delims=" %%G in ('"%ProgramFiles(x86)%\Microsoft Visual Studio\installer
 
 call "%VSCMD%"
 
+call git submodule sync
+call git submodule update --init --recursive
 call git clean -fdx
 call git submodule foreach git clean -fdx
 call msbuild SciChartTest.sln /m /v:m /p:Configuration=Release /restore
+dotnet publish -f netcoreapp3.1 -c Release

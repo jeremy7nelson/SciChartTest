@@ -1,0 +1,157 @@
+﻿[*.cs]
+
+# CA5394: Do not use insecure randomness
+dotnet_diagnostic.CA5394.severity = none
+
+# CS0067: The event 'EffectManager.EnableDropShadowsChanged' is never used
+dotnet_diagnostic.CS0067.severity = none
+
+# CS0105: Using directive appeared previously in this namespace
+dotnet_diagnostic.CS0105.severity = none
+
+# CS0108: Member hides inherited member; missing new keyword
+dotnet_diagnostic.CS0108.severity = none
+
+# CS0114: Member hides inherited member; missing override keyword
+dotnet_diagnostic.CS0114.severity = none
+
+# CS0168: Variable is declared but never used
+dotnet_diagnostic.CS0168.severity = none
+
+# CS0169: The field 'TernaryChartModifierBase._executeOnMap' is never used
+dotnet_diagnostic.CS0169.severity = none
+
+# CS0414: The field 'ThreadedRenderScheduler._disposed' is assigned but its value is never used
+dotnet_diagnostic.CS0414.severity = none
+
+# CS0419: Ambiguous reference in cref attribute
+dotnet_diagnostic.CS0419.severity = none
+
+# CS0618: Type or member is obsolete
+dotnet_diagnostic.CS0618.severity = none
+
+# CS0659: Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
+dotnet_diagnostic.CS0659.severity = none
+
+# CS0693: Type parameter has the same name as the type parameter from outer type
+dotnet_diagnostic.CS0693.severity = none
+
+# CS1570: XML comment has badly formed XML
+dotnet_diagnostic.CS1570.severity = none
+
+# CS1571: XML comment has a duplicate param tag
+dotnet_diagnostic.CS1571.severity = none
+
+# CS1572: XML comment has a param tag, but there is no parameter by that name
+dotnet_diagnostic.CS1572.severity = none
+
+# CS1573: Parameter has no matching param tag in the XML comment (but other parameters do)
+dotnet_diagnostic.CS1573.severity = none
+
+# CS1574: XML comment has cref attribute that could not be resolved
+dotnet_diagnostic.CS1574.severity = none
+
+# CS1580: Invalid type for parameter in XML comment cref attribute
+dotnet_diagnostic.CS1580.severity = none
+
+# CS1587: XML comment is not placed on a valid language element
+dotnet_diagnostic.CS1587.severity = none
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = none
+
+# CS1711: XML comment has a typeparam tag, but there is no type parameter by that name
+dotnet_diagnostic.CS1711.severity = none
+
+# CS1718: Comparison made to same variable
+dotnet_diagnostic.CS1718.severity = none
+
+# IDE0016: Use 'throw' expression
+dotnet_diagnostic.IDE0016.severity = none
+
+# IDE0017: Simplify object initialization
+dotnet_diagnostic.IDE0017.severity = none
+
+# IDE0018: Inline variable declaration
+dotnet_diagnostic.IDE0018.severity = none
+
+# IDE0019: Use pattern matching
+dotnet_diagnostic.IDE0019.severity = none
+
+# IDE0020: Use pattern matching
+dotnet_diagnostic.IDE0020.severity = none
+
+# IDE0028: Simplify collection initialization
+dotnet_diagnostic.IDE0028.severity = none
+
+# IDE0030: Use coalesce expression
+dotnet_diagnostic.IDE0030.severity = none
+
+# IDE0031: Use null propagation
+dotnet_diagnostic.IDE0031.severity = none
+
+# IDE0034: Simplify 'default' expression
+dotnet_diagnostic.IDE0034.severity = none
+
+# IDE0038: Use pattern matching
+dotnet_diagnostic.IDE0038.severity = none
+
+# IDE0039: Use local function
+dotnet_diagnostic.IDE0039.severity = none
+
+# IDE0041: Use 'is null' check
+dotnet_diagnostic.IDE0041.severity = none
+
+# IDE0044: Add readonly modifier
+dotnet_diagnostic.IDE0044.severity = none
+
+# IDE0051: Remove unused private members
+dotnet_diagnostic.IDE0051.severity = none
+
+# IDE0052: Remove unread private members
+dotnet_diagnostic.IDE0052.severity = none
+
+# IDE0054: Use compound assignment
+dotnet_diagnostic.IDE0054.severity = none
+
+# IDE0056: Use index operator
+dotnet_diagnostic.IDE0056.severity = none
+
+# IDE0057: Use range operator
+dotnet_diagnostic.IDE0057.severity = none
+
+# IDE0059: Unnecessary assignment of a value
+dotnet_diagnostic.IDE0059.severity = none
+
+# IDE0060: Remove unused parameter
+dotnet_diagnostic.IDE0060.severity = none
+
+# IDE0062: Make local function 'static'
+dotnet_diagnostic.IDE0062.severity = none
+
+# IDE0063: Use simple 'using' statement
+dotnet_diagnostic.IDE0063.severity = none
+
+# IDE0064: Make readonly fields writable
+dotnet_diagnostic.IDE0064.severity = none
+
+# IDE0066: Convert switch statement to expression
+dotnet_diagnostic.IDE0066.severity = none
+
+# IDE0070: Use 'System.HashCode'
+dotnet_diagnostic.IDE0070.severity = none
+
+# IDE0074: Use compound assignment
+dotnet_diagnostic.IDE0074.severity = none
+
+# IDE0075: Simplify conditional expression
+dotnet_diagnostic.IDE0075.severity = none
+
+# IDE0079: Remove unnecessary suppression
+dotnet_diagnostic.IDE0079.severity = none
+
+# IDE1005: Delegate invocation can be simplified.
+dotnet_diagnostic.IDE1005.severity = none
+
+# IDE1006: Naming Styles
+dotnet_diagnostic.IDE1006.severity = none

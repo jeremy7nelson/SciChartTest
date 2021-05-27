@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 
+[assembly: CLSCompliant(false)]
+
 namespace SciChartTest
 {
     public partial class App

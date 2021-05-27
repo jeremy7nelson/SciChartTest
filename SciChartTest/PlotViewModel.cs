@@ -11,8 +11,8 @@ namespace ViewModel
     {
         public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = new ObservableCollection<IRenderableSeriesViewModel>();
 
-        private readonly Timer timer = new Timer(1000.0);
-        private readonly XyDataSeries<double, double> series = new XyDataSeries<double, double>();
+        private readonly Timer timer = new(1000.0);
+        private readonly XyDataSeries<double, double> series = new();
         public PlotViewModel()
         {
             RenderableSeries.Add(new LineRenderableSeriesViewModel() { DataSeries = series });
@@ -21,7 +21,7 @@ namespace ViewModel
         }
 
         private double x;
-        private readonly Random random = new Random();
+        private readonly Random random = new();
         private void OnTimer()
         {
             series.Append(x++, random.NextDouble());
@@ -34,7 +34,7 @@ namespace ViewModel
             GC.SuppressFinalize(this);
         }
 
-        private bool disposed = false;
+        private bool disposed;
         protected virtual void Dispose(bool disposing)
         {
             if (disposed)

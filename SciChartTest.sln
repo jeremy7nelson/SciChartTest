@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciChartTest", "SciChartTest\SciChartTest.csproj", "{4FB4E123-895A-4E97-9437-F0DA65C8D298}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciChartTest", "SciChartTest\SciChartTest.csproj", "{4FB4E123-895A-4E97-9437-F0DA65C8D298}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SciChartWPF", "SciChartWPF", "{519A3BAB-5BA7-4CFA-B0A8-B2447DDB6C07}"
 EndProject
@@ -14,6 +14,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciChart.Data", "SciChartWPF\WPF\src\SciChart.Data\SciChart.Data.csproj", "{BF15F501-3EF2-40E7-8006-9E8EEF9B9BAC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SciChart.Drawing", "SciChartWPF\WPF\src\SciChart.Drawing\SciChart.Drawing.csproj", "{AE2109F5-3E9C-4792-9D4F-2B8AC338D70A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{69B1101B-D03B-40D4-9870-4B5E7651105C}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
