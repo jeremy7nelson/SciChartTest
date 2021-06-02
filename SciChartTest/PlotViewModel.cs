@@ -1,6 +1,7 @@
 ﻿using Prism.Mvvm;
 using SciChart.Charting.Model.ChartSeries;
 using SciChart.Charting.Model.DataSeries;
+using SciChartTest;
 using System;
 using System.Collections.ObjectModel;
 using System.Timers;
@@ -24,7 +25,14 @@ namespace ViewModel
         private readonly Random random = new();
         private void OnTimer()
         {
-            series.Append(x++, random.NextDouble());
+            try
+            {
+                series.Append(x++, random.NextDouble());
+            }
+            catch (Exception e)
+            {
+                Log.Append("Exception thrown from Append:\n{0}", e);
+            }
         }
 
         #region Dispose
