@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 [assembly: CLSCompliant(false)]
 
@@ -9,12 +8,18 @@ namespace SciChartTest
     {
         public App()
         {
-            AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionHandler;
+            AppDomain.CurrentDomain.FirstChanceException += OnFirstChanceException;
+            AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
         }
 
-        private void UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs args)
+        private void OnFirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
         {
-            File.AppendAllText("Error.log", ((Exception)args.ExceptionObject).ToString() + Environment.NewLine + Environment.NewLine);
+            Log.Append("First chance exception:\n{0}", e.Exception);
+        }
+
+        private void OnUnhandledException(object sender, UnhandledExceptionEventArgs args)
+        {
+            Log.Append("Unhandled exception:\n{0}", (Exception)args.ExceptionObject);
         }
     }
 }

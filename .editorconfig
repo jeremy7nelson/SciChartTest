@@ -1,5 +1,14 @@
 ﻿[*.cs]
 
+# CA1031: Do not catch general exception types
+dotnet_diagnostic.CA1031.severity = none
+
+# CA1305: Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# CA1307: Specify StringComparison for clarity
+dotnet_diagnostic.CA1307.severity = none
+
 # CA5394: Do not use insecure randomness
 dotnet_diagnostic.CA5394.severity = none
 
