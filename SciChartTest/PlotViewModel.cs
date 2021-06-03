@@ -4,7 +4,7 @@ using SciChart.Charting.Model.DataSeries;
 using SciChartTest;
 using System;
 using System.Collections.ObjectModel;
-using System.Timers;
+using System.Threading;
 
 namespace ViewModel
 {
@@ -12,7 +12,7 @@ namespace ViewModel
     {
         public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = new ObservableCollection<IRenderableSeriesViewModel>();
 
-        private readonly Timer timer = new(1000.0);
+        private readonly System.Timers.Timer timer = new(10.0);
         private readonly XyDataSeries<double, double> series = new();
         public PlotViewModel()
         {
@@ -23,15 +23,23 @@ namespace ViewModel
 
         private double x;
         private readonly Random random = new();
+        private int processingTimer;
         private void OnTimer()
         {
-            try
+            if (Interlocked.Exchange(ref processingTimer, 1) == 0)
             {
-                series.Append(x++, random.NextDouble());
-            }
-            catch (Exception e)
-            {
-                Log.Append("Exception thrown from Append:\n{0}", e);
+                try
+                {
+                    series.Append(x++, random.NextDouble());
+                }
+                catch (Exception e)
+                {
+                    Log.Append("Exception thrown from Append:\n{0}", e);
+                }
+                finally
+                {
+                    Interlocked.Exchange(ref processingTimer, 0);
+                }
             }
         }
 
