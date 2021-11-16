@@ -1,66 +1,34 @@
 ﻿using Prism.Mvvm;
 using SciChart.Charting.Model.ChartSeries;
-using SciChart.Charting.Model.DataSeries;
-using SciChartTest;
-using System;
+using SciChart.Charting.Model.DataSeries.Heatmap2DArrayDataSeries;
+using SciChart.Charting.Visuals.RenderableSeries;
 using System.Collections.ObjectModel;
-using System.Threading;
+using System.Windows.Media;
 
 namespace ViewModel
 {
-    public class PlotViewModel : BindableBase, IDisposable
+    public class PlotViewModel : BindableBase
     {
         public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = new ObservableCollection<IRenderableSeriesViewModel>();
 
-        private readonly System.Timers.Timer timer = new(10.0);
-        private readonly XyDataSeries<double, double> series = new();
         public PlotViewModel()
         {
-            RenderableSeries.Add(new LineRenderableSeriesViewModel() { DataSeries = series });
-            timer.Elapsed += (x, y) => OnTimer();
-            timer.Start();
-        }
-
-        private double x;
-        private readonly Random random = new();
-        private int processingTimer;
-        private void OnTimer()
-        {
-            if (Interlocked.Exchange(ref processingTimer, 1) == 0)
+            var zValues = new double[3, 3] { { 1.0, 0.0, 1.0 }, { 0.0, -1.0, 0.0 }, { 1.0, 0.0, 1.0 } };
+            var dataSeries = new UniformHeatmapDataSeries<double, double, double>(zValues, 0.0, 1.0, 0.0, 1.0);
+            var heatmap = new UniformHeatmapRenderableSeriesViewModel() { DataSeries = dataSeries };
+            heatmap.ColorMap = new HeatmapColorPalette()
             {
-                try
+                AllowsHighPrecision = true,
+                Minimum = -1.0,
+                Maximum = 1.0,
+                GradientStops = new(new[]
                 {
-                    series.Append(x++, random.NextDouble());
-                }
-                catch (Exception e)
-                {
-                    Log.Append("Exception thrown from Append:\n{0}", e);
-                }
-                finally
-                {
-                    Interlocked.Exchange(ref processingTimer, 0);
-                }
-            }
+                    new GradientStop(Colors.Red, -1.0),
+                    new GradientStop(Colors.Black, 0.0),
+                    new GradientStop(Colors.Green, 1.0)
+                 })
+            };
+            RenderableSeries.Add(heatmap);
         }
-
-        #region Dispose
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private bool disposed;
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposed)
-                return;
-
-            if (disposing)
-                timer.Dispose();
-
-            disposed = true;
-        }
-        #endregion
     }
 }
