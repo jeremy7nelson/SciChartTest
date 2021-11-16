@@ -18,7 +18,7 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
-    <PackageReference Include="SciChart" Version="6.3.0.13476" />
+    <PackageReference Include="SciChart" Version="6.5.0.13720" />
   </ItemGroup>
 
 </Project>
