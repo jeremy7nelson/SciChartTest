@@ -33,7 +33,7 @@
                 <SciChart:NumericAxis DrawMinorGridLines="False" DrawMajorBands="False" AutoRange="Always"/>
             </SciChart:SciChartSurface.XAxis>
             <SciChart:SciChartSurface.YAxis>
-                <SciChart:NumericAxis AxisAlignment="Left" DrawMinorGridLines="False" DrawMajorBands="False" AutoRange="Always" GrowBy="0.2,0.2"/>
+                <SciChart:LogarithmicNumericAxis AxisAlignment="Left" DrawMinorGridLines="False" DrawMajorBands="False" AutoRange="Always" GrowBy="0.2,0.2"/>
             </SciChart:SciChartSurface.YAxis>
         </SciChart:SciChartSurface>
     </Grid>
