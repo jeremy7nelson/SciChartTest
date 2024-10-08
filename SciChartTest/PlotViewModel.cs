@@ -12,6 +12,27 @@ namespace ViewModel
     {
         public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = [];
 
+        private bool enableVisualXcceleratorEngine;
+        public bool EnableVisualXcceleratorEngine
+        {
+            get => enableVisualXcceleratorEngine;
+            set => SetProperty(ref enableVisualXcceleratorEngine, value);
+        }
+
+        private bool enableImpossibleMode;
+        public bool EnableImpossibleMode
+        {
+            get => enableImpossibleMode;
+            set => SetProperty(ref enableImpossibleMode, value);
+        }
+
+        private bool enableExtremeResamplers;
+        public bool EnableExtremeResamplers
+        {
+            get => enableExtremeResamplers;
+            set => SetProperty(ref enableExtremeResamplers, value);
+        }
+
         private readonly System.Timers.Timer timer = new(10.0);
         private readonly XyDataSeries<double, double> series = new();
         public PlotViewModel()
@@ -31,6 +52,10 @@ namespace ViewModel
                 try
                 {
                     series.Append(x++, random.NextDouble());
+                    if (x % 1000 == 0)
+                    {
+                        ChangeRenderer();
+                    }
                 }
                 catch (Exception e)
                 {
@@ -41,6 +66,15 @@ namespace ViewModel
                     Interlocked.Exchange(ref processingTimer, 0);
                 }
             }
+        }
+
+        bool vx;
+        private void ChangeRenderer()
+        {
+            vx = !vx;
+            EnableVisualXcceleratorEngine = vx;
+            EnableImpossibleMode = vx;
+            EnableExtremeResamplers = vx;
         }
 
         #region Dispose

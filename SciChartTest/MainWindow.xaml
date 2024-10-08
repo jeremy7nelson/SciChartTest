@@ -26,9 +26,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <SciChart:SciChartSurface SciChart:ThemeManager.Theme="BrightSpark" RenderableSeries="{SciChart:SeriesBinding RenderableSeries}"
-                SciChart:VisualXcceleratorEngine.IsEnabled="True" SciChart:VisualXcceleratorEngine.FallbackType="{x:Type SciChart:HighSpeedRenderSurface}"
-                SciChart:VisualXcceleratorEngine.DowngradeWithoutException="True" SciChart:VisualXcceleratorEngine.EnableImpossibleMode="True"
-                SciChart:PerformanceHelper.EnableExtremeResamplers="True">
+                SciChart:VisualXcceleratorEngine.IsEnabled="{Binding EnableVisualXcceleratorEngine}" SciChart:VisualXcceleratorEngine.FallbackType="{x:Type SciChart:HighSpeedRenderSurface}"
+                SciChart:VisualXcceleratorEngine.DowngradeWithoutException="True" SciChart:VisualXcceleratorEngine.EnableImpossibleMode="{Binding EnableImpossibleMode}"
+                SciChart:PerformanceHelper.EnableExtremeResamplers="{Binding EnableExtremeResamplers}">
             <SciChart:SciChartSurface.XAxis>
                 <SciChart:NumericAxis DrawMinorGridLines="False" DrawMajorBands="False" AutoRange="Always"/>
             </SciChart:SciChartSurface.XAxis>
