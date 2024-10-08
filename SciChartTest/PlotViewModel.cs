@@ -10,7 +10,7 @@ namespace ViewModel
 {
     public class PlotViewModel : BindableBase, IDisposable
     {
-        public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = new ObservableCollection<IRenderableSeriesViewModel>();
+        public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = [];
 
         private readonly System.Timers.Timer timer = new(10.0);
         private readonly XyDataSeries<double, double> series = new();
