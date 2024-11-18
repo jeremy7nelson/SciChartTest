@@ -4,7 +4,7 @@
 
 namespace SciChartTest
 {
-    public partial class App
+    internal sealed partial class App
     {
         public App()
         {

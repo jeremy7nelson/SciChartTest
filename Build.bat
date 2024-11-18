@@ -9,6 +9,5 @@ call "%VSCMD%"
 
 call git clean -fdx
 call msbuild SciChartTest.sln /m /v:m /p:Configuration=Release /p:TargetFramework=net472 /restore
-dotnet publish -f net6.0-windows -c Release
-dotnet publish -f net7.0-windows -c Release
 dotnet publish -f net8.0-windows -c Release
+dotnet publish -f net9.0-windows -c Release

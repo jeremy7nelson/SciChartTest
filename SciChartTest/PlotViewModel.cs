@@ -4,11 +4,13 @@ using SciChart.Charting.Model.DataSeries;
 using SciChartTest;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 
 namespace ViewModel
 {
-    public class PlotViewModel : BindableBase, IDisposable
+    [SuppressMessage("Performance", "CA1812:Avoid uninstantiated internal classes")]
+    internal sealed class PlotViewModel : BindableBase, IDisposable
     {
         public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = [];
 
@@ -38,7 +40,7 @@ namespace ViewModel
                 }
                 finally
                 {
-                    Interlocked.Exchange(ref processingTimer, 0);
+                    _ = Interlocked.Exchange(ref processingTimer, 0);
                 }
             }
         }
@@ -51,13 +53,17 @@ namespace ViewModel
         }
 
         private bool disposed;
-        protected virtual void Dispose(bool disposing)
+        private void Dispose(bool disposing)
         {
             if (disposed)
+            {
                 return;
+            }
 
             if (disposing)
+            {
                 timer.Dispose();
+            }
 
             disposed = true;
         }
