@@ -1,11 +1,9 @@
 ﻿using Prism.Mvvm;
 using SciChart.Charting.Model.ChartSeries;
-using SciChart.Charting.Model.DataSeries;
-using SciChartTest;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
-using System.Threading;
+using System.Windows.Threading;
 
 namespace ViewModel
 {
@@ -14,35 +12,19 @@ namespace ViewModel
     {
         public ObservableCollection<IRenderableSeriesViewModel> RenderableSeries { get; } = [];
 
+        private readonly Dispatcher dispatcher = Dispatcher.CurrentDispatcher;
         private readonly System.Timers.Timer timer = new(10.0);
-        private readonly XyDataSeries<double, double> series = new();
+        private readonly LineRenderableSeriesViewModel renderable = new();
         public PlotViewModel()
         {
-            RenderableSeries.Add(new LineRenderableSeriesViewModel() { DataSeries = series });
-            timer.Elapsed += (x, y) => OnTimer();
+            timer.Elapsed += (x, y) => dispatcher.Invoke(ReplaceRenderableSeries);
             timer.Start();
         }
 
-        private double x;
-        private readonly Random random = new();
-        private int processingTimer;
-        private void OnTimer()
+        private void ReplaceRenderableSeries()
         {
-            if (Interlocked.Exchange(ref processingTimer, 1) == 0)
-            {
-                try
-                {
-                    series.Append(x++, random.NextDouble());
-                }
-                catch (Exception e)
-                {
-                    Log.Append("Exception thrown from Append:\n{0}", e);
-                }
-                finally
-                {
-                    _ = Interlocked.Exchange(ref processingTimer, 0);
-                }
-            }
+            RenderableSeries.Clear();
+            RenderableSeries.Add(renderable);
         }
 
         #region Dispose
