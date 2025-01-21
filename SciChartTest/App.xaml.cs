@@ -1,15 +1,17 @@
-﻿using System;
+﻿using SciChart.Charting.Visuals;
+using System;
 
 [assembly: CLSCompliant(false)]
 
 namespace SciChartTest
 {
-    public partial class App
+    internal sealed partial class App
     {
         public App()
         {
             AppDomain.CurrentDomain.FirstChanceException += OnFirstChanceException;
             AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+            SciChartSurface.SetRuntimeLicenseKey("RuntimeLicenseKey");
         }
 
         private void OnFirstChanceException(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
